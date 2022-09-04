@@ -16,21 +16,21 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="简要说明:&amp;emsp;&#x3D;&#x3D;本网站纯纯的为学习用途&#x3D;&#x3D;&amp;emsp在hexo上不知道为啥不显示为空格，后面再说吧&#x3D;&#x3D;开发测试的学习路线&#x3D;&#x3D;阶段一 &amp;emsp;入门阶段二 &amp;emsp;基础阶段三 &amp;emsp;进阶阶段四&amp;emsp;项目实战以上并不按部就班学习，更多是引导作用。">
+    <meta name="description" content="多用户通信系统思路 通信结构分为客户端和服务端  服务端主要作为中转站，负责处理数据和管理线程池客户端作为用户可以通过服务器给其它用户发送消息和各类文件数据的传输主要采用对象流的方式，包括用户对象和消息数据包    一、 实现第一个功能，用户登录首先想到用户对象的创建，其次是消息数据包的创建，都作为对象数据流来传输。  1）用户这个类包括用户名&#x2F;id,用户密码">
 <meta property="og:type" content="article">
-<meta property="og:title" content="测开学习路线">
-<meta property="og:url" content="http://tanquerayds.site/2022/08/12/%E6%B5%8B%E5%BC%80%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/index.html">
+<meta property="og:title" content="多用户通信系统">
+<meta property="og:url" content="http://tanquerayds.site/2022/09/03/%E5%A4%9A%E7%94%A8%E6%88%B7%E9%80%9A%E4%BF%A1%E7%B3%BB%E7%BB%9F/index.html">
 <meta property="og:site_name" content="老亚萨西了">
-<meta property="og:description" content="简要说明:&amp;emsp;&#x3D;&#x3D;本网站纯纯的为学习用途&#x3D;&#x3D;&amp;emsp在hexo上不知道为啥不显示为空格，后面再说吧&#x3D;&#x3D;开发测试的学习路线&#x3D;&#x3D;阶段一 &amp;emsp;入门阶段二 &amp;emsp;基础阶段三 &amp;emsp;进阶阶段四&amp;emsp;项目实战以上并不按部就班学习，更多是引导作用。">
+<meta property="og:description" content="多用户通信系统思路 通信结构分为客户端和服务端  服务端主要作为中转站，负责处理数据和管理线程池客户端作为用户可以通过服务器给其它用户发送消息和各类文件数据的传输主要采用对象流的方式，包括用户对象和消息数据包    一、 实现第一个功能，用户登录首先想到用户对象的创建，其次是消息数据包的创建，都作为对象数据流来传输。  1）用户这个类包括用户名&#x2F;id,用户密码">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-08-12T01:31:26.000Z">
-<meta property="article:modified_time" content="2022-09-04T02:55:06.030Z">
+<meta property="article:published_time" content="2022-09-03T11:16:26.000Z">
+<meta property="article:modified_time" content="2022-09-04T04:37:43.789Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>测开学习路线 - 老亚萨西了</title>
+  <title>多用户通信系统 - 老亚萨西了</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -199,7 +199,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="测开学习路线"></span>
+            <span id="subtitle" data-typed-text="多用户通信系统"></span>
           
         </div>
 
@@ -210,8 +210,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-08-12 09:31" pubdate>
-          August 12, 2022 am
+        <time datetime="2022-09-03 19:16" pubdate>
+          September 3, 2022 pm
         </time>
       </span>
     
@@ -222,7 +222,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          456 words
+          1.8k words
         
       </span>
     
@@ -233,7 +233,7 @@
         
         
         
-          4 mins
+          16 mins
         
       </span>
     
@@ -271,33 +271,43 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">测开学习路线</h1>
+            <h1 style="display: none">多用户通信系统</h1>
             
             
               <div class="markdown-body">
                 
-                <h5 id="简要说明-amp-emsp-x3D-x3D-本网站纯纯的为学习用途-x3D-x3D"><a href="#简要说明-amp-emsp-x3D-x3D-本网站纯纯的为学习用途-x3D-x3D" class="headerlink" title="简要说明:&amp;emsp;&#x3D;&#x3D;本网站纯纯的为学习用途&#x3D;&#x3D;"></a>简要说明:&amp;emsp;&#x3D;&#x3D;<em>本网站纯纯的为学习用途</em>&#x3D;&#x3D;</h5><h6 id="amp-emsp在hexo上不知道为啥不显示为空格，后面再说吧"><a href="#amp-emsp在hexo上不知道为啥不显示为空格，后面再说吧" class="headerlink" title="&amp;emsp在hexo上不知道为啥不显示为空格，后面再说吧"></a>&amp;emsp在hexo上不知道为啥不显示为空格，后面再说吧</h6><h2 id="x3D-x3D-开发测试的学习路线-x3D-x3D"><a href="#x3D-x3D-开发测试的学习路线-x3D-x3D" class="headerlink" title="&#x3D;&#x3D;开发测试的学习路线&#x3D;&#x3D;"></a>&#x3D;&#x3D;开发测试的学习路线&#x3D;&#x3D;</h2><h4 id="阶段一-amp-emsp-入门"><a href="#阶段一-amp-emsp-入门" class="headerlink" title="阶段一 &amp;emsp;入门"></a><a href="#lable01">阶段一 &amp;emsp;入门</a></h4><h4 id="阶段二-amp-emsp-基础"><a href="#阶段二-amp-emsp-基础" class="headerlink" title="阶段二 &amp;emsp;基础"></a>阶段二 &amp;emsp;基础</h4><h4 id="阶段三-amp-emsp-进阶"><a href="#阶段三-amp-emsp-进阶" class="headerlink" title="阶段三 &amp;emsp;进阶"></a>阶段三 &amp;emsp;进阶</h4><h4 id="阶段四-amp-emsp-项目实战"><a href="#阶段四-amp-emsp-项目实战" class="headerlink" title="阶段四&amp;emsp;项目实战"></a>阶段四&amp;emsp;项目实战</h4><p>以上并不按部就班学习，更多是引导作用。</p>
-<hr>
-<p><a name="lable01"></a></p>
-<h4 id="阶段一-amp-emsp-入门-1"><a href="#阶段一-amp-emsp-入门-1" class="headerlink" title="阶段一 &amp;emsp;入门"></a>阶段一 &amp;emsp;入门</h4><p>&amp;emsp;首先是对一门编程语言熟悉，java基本的包括数据类型、基本语法、循环结构、数组、面向对象、多线程、IO流…等.</p>
-<hr>
-<h4 id="阶段二-amp-emsp-基础-1"><a href="#阶段二-amp-emsp-基础-1" class="headerlink" title="阶段二 &amp;emsp;基础"></a>阶段二 &amp;emsp;基础</h4><p>基础包括以下两部分:</p>
-<p><strong>1. 计算机基础</strong></p>
-<ol>
-<li>计算机网络</li>
-<li>数据结构与算法（持续）</li>
-<li>mysql数据库</li>
-<li>Linux</li>
-<li>操作系统</li>
-</ol>
-<p><strong>2. 测试基础</strong></p>
-<ol>
-<li>测试工具（Charles、Postman、禅道、Jmeter…）</li>
-<li>功能测试基础（用例设计、测试流程、理论）</li>
-</ol>
-<hr>
-<h3 id="阶段三-amp-emsp-进阶-1"><a href="#阶段三-amp-emsp-进阶-1" class="headerlink" title="阶段三 &amp;emsp;进阶"></a>阶段三 &amp;emsp;进阶</h3><p>进阶分为以下下个部分<br><strong>1. 开发</strong><br><strong>1. 测试</strong></p>
-<p>这是<label style="color:red">红色</label>字体<br> 这是<label style="color:green">绿色</label>字体<br> 这是<label style="color:yellow">黄色</label>字体<br> 这是<label style="color:blue">蓝色</label>字体</p>
+                <h3 id="多用户通信系统思路"><a href="#多用户通信系统思路" class="headerlink" title="多用户通信系统思路"></a>多用户通信系统思路</h3><blockquote>
+<p><strong>通信结构分为客户端和服务端</strong></p>
+<blockquote>
+<p><strong>服务端</strong>主要作为中转站，负责处理数据和管理线程池<br><strong>客户端</strong>作为用户可以通过服务器给其它用户发送消息和各类文件<br><strong>数据的传输</strong>主要采用对象流的方式，包括用户对象和消息数据包</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>一、 实现第一个功能，用户登录<br><strong>首先想到用户对象的创建，其次是消息数据包的创建，都作为对象数据流来传输。</strong></p>
+<blockquote>
+<p>1）用户这个类包括用户名&#x2F;id,用户密码</p>
+</blockquote>
+</blockquote>
+<div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        点击显/隐内容
+    </div>
+    <div class='spoiler-content'>
+        <figure class="highlight java"><i class="iconfont icon-github-fill" type="button" data-toggle="collapse" data-target="#collapse-r8d9t5l7muf3x9"></i><span>java</span><div class="collapse show" id="collapse-r8d9t5l7muf3x9"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">User</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">Serializable</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">long</span> <span class="hljs-variable">serialVersionUID</span> <span class="hljs-operator">=</span> <span class="hljs-number">1L</span>;<br>    <span class="hljs-keyword">private</span> String name;<span class="hljs-comment">//用户名/id</span><br>    String passWord;<span class="hljs-comment">//密码</span><br><br>    <span class="hljs-keyword">public</span> <span class="hljs-title function_">User</span><span class="hljs-params">(String name, String passWord)</span> &#123;<br>        <span class="hljs-built_in">this</span>.name = name;<br>        <span class="hljs-built_in">this</span>.passWord = passWord;<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">getName</span><span class="hljs-params">()</span> &#123;<br>        <span class="hljs-keyword">return</span> name;<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">setName</span><span class="hljs-params">(String name)</span> &#123;<br>        <span class="hljs-built_in">this</span>.name = name;<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">getPassWord</span><span class="hljs-params">()</span> &#123;<br>        <span class="hljs-keyword">return</span> passWord;<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">setPassWord</span><span class="hljs-params">(String passWord)</span> &#123;<br>        <span class="hljs-built_in">this</span>.passWord = passWord;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></div></figure>
+    </div>
+</div>
+
+
+<blockquote>
+<p>2）数据包这个类会包含数据类型，数据内容，发送者和接收者，最后还有发送时间</p>
+</blockquote>
+<figure class="highlight java"><i class="iconfont icon-github-fill" type="button" data-toggle="collapse" data-target="#collapse-lxt520l7muf3x9"></i><span>JAVA</span><div class="collapse show" id="collapse-lxt520l7muf3x9"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><code class="hljs JAVA"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Message</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">Serializable</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">long</span> <span class="hljs-variable">serialVersionUID</span> <span class="hljs-operator">=</span> <span class="hljs-number">1L</span>;<br>    <span class="hljs-keyword">private</span> String content;<span class="hljs-comment">//发送内容</span><br>    <span class="hljs-keyword">private</span> String dataType;<span class="hljs-comment">//数据类型</span><br>    <span class="hljs-keyword">private</span> String sender;<span class="hljs-comment">//发送者</span><br>    <span class="hljs-keyword">private</span> String receiver;<span class="hljs-comment">//接收者</span><br>    <span class="hljs-keyword">private</span> String data;<span class="hljs-comment">//日期，感觉可以用第三代日期类，后面再改</span><br>    <br>    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">getContent</span><span class="hljs-params">()</span> &#123;<br>        <span class="hljs-keyword">return</span> content;<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">setContent</span><span class="hljs-params">(String content)</span> &#123;<br>        <span class="hljs-built_in">this</span>.content = content;<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">getDataType</span><span class="hljs-params">()</span> &#123;<br>        <span class="hljs-keyword">return</span> dataType;<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">setDataType</span><span class="hljs-params">(String dataType)</span> &#123;<br>        <span class="hljs-built_in">this</span>.dataType = dataType;<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">getSender</span><span class="hljs-params">()</span> &#123;<br>        <span class="hljs-keyword">return</span> sender;<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">setSender</span><span class="hljs-params">(String sender)</span> &#123;<br>        <span class="hljs-built_in">this</span>.sender = sender;<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">getReceiver</span><span class="hljs-params">()</span> &#123;<br>        <span class="hljs-keyword">return</span> receiver;<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">setReceiver</span><span class="hljs-params">(String receiver)</span> &#123;<br>        <span class="hljs-built_in">this</span>.receiver = receiver;<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">getData</span><span class="hljs-params">()</span> &#123;<br>        <span class="hljs-keyword">return</span> data;<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">setData</span><span class="hljs-params">(String data)</span> &#123;<br>        <span class="hljs-built_in">this</span>.data = data;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></div></figure>
+
+
+<blockquote>
+<p>3）为了管理数据包的数据类型，再创建个接口来管理</p>
+</blockquote>
+<figure class="highlight java"><i class="iconfont icon-github-fill" type="button" data-toggle="collapse" data-target="#collapse-t35rdml7muf3x9"></i><span>JAVA</span><div class="collapse show" id="collapse-t35rdml7muf3x9"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs JAVA"><span class="hljs-keyword">package</span> az.qqServer;<br><span class="hljs-keyword">public</span> <span class="hljs-keyword">interface</span> <span class="hljs-title class_">MessageType</span> &#123;<br>    <span class="hljs-comment">//在接口中定义常量，表示不同的消息类型</span><br>    <span class="hljs-type">String</span> <span class="hljs-variable">MESSAGE_LOGIN_SUCCEED</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;1&quot;</span>;<br>    <span class="hljs-type">String</span> <span class="hljs-variable">MESSAGE_LOGIN_FAIL</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;2&quot;</span>;<br>&#125;<br></code></pre></td></tr></table></div></figure>
 <link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
                 
               </div>
@@ -315,8 +325,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>测开学习路线</div>
-      <div>http://tanquerayds.site/2022/08/12/测开学习路线/</div>
+      <div>多用户通信系统</div>
+      <div>http://tanquerayds.site/2022/09/03/多用户通信系统/</div>
     </div>
     <div class="license-meta">
       
@@ -328,7 +338,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>Posted on</div>
-          <div>August 12, 2022</div>
+          <div>September 3, 2022</div>
         </div>
       
       
@@ -358,15 +368,15 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/08/15/%E5%9B%BE%E7%89%87%E6%B5%8B%E8%AF%95/" title="图片测试">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">图片测试</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
+                    
+                      <a href="/2022/09/03/java%E7%AC%94%E8%AE%B0/" title="网络编程章节java笔记">
+                        <span class="hidden-mobile">网络编程章节java笔记</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
                     
                   </article>
                 </div>
