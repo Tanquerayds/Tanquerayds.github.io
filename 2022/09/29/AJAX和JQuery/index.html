@@ -16,21 +16,23 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="思路整理">
+    <meta name="description" content="AJAX 意义   可以实现网页的局部刷新，让程序更快响应用户操作  概念    是一种综合的技术，内容包括JavaScript : 创建XMLHttpRequest对象,调用属性或方法dom ：处理dom，更新select的数据css：处理视图，更新美化Servlet：服务器端技术数据格式：json，它之前是xml以上技术的综合使用叫做AJAX（Asynchronous JavaScript a">
 <meta property="og:type" content="article">
-<meta property="og:title" content="基于Hexo和Github搭建个人博客">
-<meta property="og:url" content="http://tanquerayds.site/2022/08/18/%E5%9F%BA%E4%BA%8EHexo%E5%92%8CGithub%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/index.html">
+<meta property="og:title" content="AJAX和JQuery">
+<meta property="og:url" content="http://tanquerayds.site/2022/09/29/AJAX%E5%92%8CJQuery/index.html">
 <meta property="og:site_name" content="老亚萨西了">
-<meta property="og:description" content="思路整理">
+<meta property="og:description" content="AJAX 意义   可以实现网页的局部刷新，让程序更快响应用户操作  概念    是一种综合的技术，内容包括JavaScript : 创建XMLHttpRequest对象,调用属性或方法dom ：处理dom，更新select的数据css：处理视图，更新美化Servlet：服务器端技术数据格式：json，它之前是xml以上技术的综合使用叫做AJAX（Asynchronous JavaScript a">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-08-18T11:30:35.000Z">
-<meta property="article:modified_time" content="2022-09-05T05:44:48.818Z">
+<meta property="og:image" content="https://s1.328888.xyz/2022/09/29/sZrHN.png">
+<meta property="article:published_time" content="2022-09-29T00:54:43.000Z">
+<meta property="article:modified_time" content="2022-09-29T08:46:14.032Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://s1.328888.xyz/2022/09/29/sZrHN.png">
   
   
   
-  <title>基于Hexo和Github搭建个人博客 - 老亚萨西了</title>
+  <title>AJAX和JQuery - 老亚萨西了</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -199,7 +201,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="基于Hexo和Github搭建个人博客"></span>
+            <span id="subtitle" data-typed-text="AJAX和JQuery"></span>
           
         </div>
 
@@ -210,8 +212,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-08-18 19:30" pubdate>
-          August 18, 2022 pm
+        <time datetime="2022-09-29 08:54" pubdate>
+          September 29, 2022 am
         </time>
       </span>
     
@@ -222,7 +224,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          68 words
+          745 words
         
       </span>
     
@@ -233,7 +235,7 @@
         
         
         
-          1 mins
+          7 mins
         
       </span>
     
@@ -271,25 +273,46 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">基于Hexo和Github搭建个人博客</h1>
+            <h1 style="display: none">AJAX和JQuery</h1>
             
             
-              
-              <div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉，这个密码看着不太对，请再试试。" data-whm="抱歉，这个文章不能被纠正，不过您还是能看看解密后">
-  <script id="hbeData" type="hbeData" data-hmacdigest="75c490ad1cce67e524a16d8f7a86b42f1d742ba6dda2fd8f5a1e482b0439428a">0bca038eed8a1afa963dd59b310a40ffcff8f184ee4b1145fe4c02fcaf6d464763dd5016051250aadd7b99817742c9b0a6cef8200686de0ea48ebac00fc90527479a9e54b2d6a48fbdf56e9761d093d58112f1615a927316850ddf04092bf7c26492660057654039d9dd429d59f93f32ee622e21c730975a8656a469af50d05904df769dda6a11fc99f3af137ad164b10a106441243f3832fcd73ebcf8cd7572cacfdc58a4cf282d8af821d2311a8bbfc65fd45658a623c69b6201676fecd3aab1ed41db1adf4f0dce0049905626b3d17358a592fd4f400a2923fda71f32f917f77725ca06f31e34f63f9e33b4bf5c29c7fc01d3c291f0244535fb03d4751fe44a8a4e340217c03de26098449dd010fcf4f0d9857cf90c7dbb58be96e6d5a817abf93bdd4ab6bdb80cb3c42d6091697ddd66da4747ed94fc26aa8d07e1c94242bd20d51abaf6efec287258e2c8c6323cced32ecab0c80eac99f57172a47efb270b3bb27c2555671003858ab7e61a76aa42df5a78c83a8a9d446be5903badbf874aeecdbc67082a273eeb0da6a73be5be1cec5ec3fc0a72996e9f00c6dc0afa449a042094d91057797f66822565fdf8285e769664c487cd0fbc9381f88811955221fdd5d84284b97c72e06c3cd3640a0f093112fb1c9f2263883511c618ffc06f2a68929dd5138a3e50a309608273af0a95325c681c1efb0717259b2f80c103d575fa3ce20f325578ceedc09317393f6cf8848c3d23b0596d286ea7064178832c5b8801a34cf88ef0a47e75b102ccff3fa9ebf204f54f6d4524284e43ee7e6a79b1695992ec6097e6c3eac482829d9144080a2253412a8f4eb43dff95c1a65d6920c76318c4c4c0abc8f3534b0dabede786368a6eb04f1e91e490e714f07e74ec95700692c6eaf4d4422054a8f131a91d729436459bf6d4ff4d15f3117d3fa7682f7ce8f4af0768b47e9d7eee4205b502512c5dbbff98c34abef62b04da307442b00f7f01081c55f261dc3a678eda5b03249c172664873db2a1075e5b0a0894e69f97bd0fbfcefe38397317cefc782252c6140a498ca12e8f33aa2b2ec50279365d7baa9a1379986b19771f587cbf70d3c5c4896a3537187a750e7141a194e0c2c339e7c97128eb060e890bf282d6d6919ca95df1f0db77cb6eec9cf85200d7a0f26d224e474b385f2fb689df47a1606c44bdb0cf140db8d7257c5f5a092a16c48af19e86304129276b877c4d4bf90b2fe5b541ad54ec32b1933b4b8aa321f98a02fe8450938def2e11136d85417d1c3bb8422cf603e3cef1d8c273ea571075fb966c1bd6c1e6e5e2fd9220ed52f0dfca9348cd178c768d6c996d9bd6ac39857b55869e5827c77d04e397bbc14033d68f7b68d34487a84533b5e7e004441cbd6cf8811b0d536fb6b1b5013cd838c1edd7a89dca14e2782cedf04e3a026df991c38ea6a18294214522101a1dd6c49e7d34270a3d31a4ed2a018ff1e35e019f1b297a74a7f2ab8feb1b3a591829a52f262544f227d2174ec0d02883e9d8fbb223454f3392974b7947dc59ad7d2800b69a2ac28c061860c48897236d3f89597ebd91140543ac4c336eb52e68b4fe487cc46f45b68d0e1315baa3727703ee888c030fdffc51f34698e24c30c51b468f8191a47399dc0fa68ed90181fb6840ea64367c448600d19573b49a19bb1b8fbe0cd8f8456b271f3c5422ceb107da6a7944e1c168bcd614a9a68aeb3730569cc2d4c0052ba735eecc6c4287bee01152ad9b9f9b62fcb30bc7b9980e1c956abbdd90f2b227abdf3141237548eccc64b64d6b7d75ee62e851b30a07e1a43015c7d238e0a56873fcc170643f0abd87612b6ed56a96684fa1770d5c1d4073db5b3aa19131835d593b31b60ffd0a3f3eec0c4b47d9919cc18457abb5b16f46a970e5bfa6283f42e0cdef52cde61f20d25cf4978b15736b00cbe7f8b62104d4fb16982e4416160c60f88d11518917547518cf91df449f1992987485d358372891e9e1d5ca18bf9eeacb6c17a8412a0858c93f6e9df9b4109d3c60995fd3189bb335b5d96ff0e08d08e6cc0e94d4c1cc35eaf7f52c5e16774a480a3eb82912d79be67994a1f0ec19caaa8cd623ea3f491cac362f0e41514fa8c0e05aa180ac47192943a8df71f6c38dcf7f3c3aec27f97018387322fbce6117e005cb6a0821af35cd969369f84b3d119f1d2e903413f0152c6037e03bce127dead732fb1b4f5514e1b809ee410074ed285a2259e3f88b1f1ba80380a0609bed3dfa3e33264a48c84cb20e2c36cfa16299459083a13c5efb1af4b00a1e80</script>
-  <div class="hbe hbe-content">
-    <div class="hbe hbe-input hbe-input-default">
-      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
-      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
-        <span class="hbe hbe-input-label-content hbe-input-label-content-default">password</span>
-      </label>
-    </div>
-  </div>
-</div>
-<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">
-              
-
-              
+              <div class="markdown-body">
+                
+                <h2 id="AJAX"><a href="#AJAX" class="headerlink" title="AJAX"></a>AJAX</h2><blockquote>
+<p>意义 </p>
+<ul>
+<li>可以实现网页的<strong>局部刷新</strong>，让程序更快响应用户操作</li>
+</ul>
+<p>概念  </p>
+<ul>
+<li>是一种综合的技术，内容包括<br>JavaScript : 创建XMLHttpRequest对象,调用属性或方法<br>dom ：处理dom，更新select的数据<br>css：处理视图，更新美化<br>Servlet：服务器端技术<br>数据格式：json，它之前是xml<br>以上技术的综合使用叫做AJAX（Asynchronous JavaScript and XML）</li>
+</ul>
+<p>ajax 核心是javascript和xml（json）：使用js操作XMLHttpRequest，和服务器交互使用json数据格式</p>
+</blockquote>
+<h3 id="全局刷新和局部刷新"><a href="#全局刷新和局部刷新" class="headerlink" title="全局刷新和局部刷新"></a>全局刷新和局部刷新</h3><blockquote>
+<p>1）全局刷新:使用form,href等发起的请求是全局刷新。<br>用户发起请求，视图改变了，跳转视图，使用新的数据添加到页面。缺点:</p>
+<ol>
+<li>传递数据量比较大。占用网络的带宽</li>
+<li>浏览器需要重新的渲染整个页面。</li>
+<li>用户的体验不是那么好</li>
+</ol>
+<p>2)局部刷新︰在当前页面中，发起请求，获取数据，更新当前页面的dom对象。对视图部分刷新<br>特点:</p>
+<ol>
+<li>数量比较小，在网络中传输速度快。</li>
+<li>更新页面内容，是部分更新页面，浏览器不用全部渲染视图。</li>
+<li>在一个页面中，可以做多个局部刷新</li>
+<li>从服务器获取的是数据，拿到更新视图</li>
+</ol>
+</blockquote>
+<h3 id="异步请求对象"><a href="#异步请求对象" class="headerlink" title="异步请求对象"></a>异步请求对象</h3><blockquote>
+<p>通过创建异步对象<strong>XMLHttpRequest</strong>操作属性方法完成局部刷新</p>
+</blockquote>
+<blockquote>
+<p>在局部刷新，需要创建一个对象，代替浏览器发起请求的行为，这个对象存在内存中。代替浏览器发起请求并接收响应数据。这个对象叫做异步请求对象。<br>全局刷新是同步行为，局部刷新是异步行为[浏览器数据没有全部更新]<br>这个异步对象用于在后台与服务器交换数据。XMLHttpRequest 就是异步对象<br>异步对象是在浏览器内部的一种javascript对象。各大浏览器都能支持异步对象使用。<br><img src="https://s1.328888.xyz/2022/09/29/sZrHN.png" srcset="/img/loading.gif" lazyload></p>
+</blockquote>
+<h3 id="AJAX实例"><a href="#AJAX实例" class="headerlink" title="AJAX实例"></a>AJAX实例</h3><h3 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h3><h2 id="JQuery"><a href="#JQuery" class="headerlink" title="JQuery"></a>JQuery</h2><h3 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h3><h3 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h3><h3 id="过滤器"><a href="#过滤器" class="headerlink" title="过滤器"></a>过滤器</h3><h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h3><h3 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h3><h3 id="AJAX-1"><a href="#AJAX-1" class="headerlink" title="AJAX"></a>AJAX</h3><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
+                
+              </div>
             
             <hr/>
             <div>
@@ -304,8 +327,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>基于Hexo和Github搭建个人博客</div>
-      <div>http://tanquerayds.site/2022/08/18/基于Hexo和Github搭建个人博客/</div>
+      <div>AJAX和JQuery</div>
+      <div>http://tanquerayds.site/2022/09/29/AJAX和JQuery/</div>
     </div>
     <div class="license-meta">
       
@@ -317,7 +340,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>Posted on</div>
-          <div>August 18, 2022</div>
+          <div>September 29, 2022</div>
         </div>
       
       
@@ -347,9 +370,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/08/18/Hexo%E4%B8%BB%E9%A2%98/" title="Hexo主题">
+                      <a href="/2022/09/29/WEB%E5%90%8E%E7%AB%AF-Servlet/" title="web后端-Servlet">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Hexo主题</span>
+                        <span class="hidden-mobile">web后端-Servlet</span>
                         <span class="visible-mobile">Previous</span>
                       </a>
                     
@@ -357,8 +380,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/08/12/%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/" title="学习路线">
-                        <span class="hidden-mobile">学习路线</span>
+                      <a href="/2022/09/22/JavaScript%E7%AC%94%E8%AE%B0/" title="JavaScript">
+                        <span class="hidden-mobile">JavaScript</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -511,23 +534,6 @@
   
 
 
-
-
-  
-  <script defer>
-    if (document.getElementById('hbePass')) {
-      Fluid.utils.waitElementLoaded('hbe-prefix', function() {
-        var hbePrefix = document.querySelector('hbe-prefix');
-        hbePrefix.parentElement.classList.add('markdown-body');
-        Fluid.utils.retry(function() {
-          if (Fluid.boot && Fluid.boot.refreshPlugins) {
-            Fluid.boot.refreshPlugins();
-            return true;
-          }
-        }, 100, 10);
-      })
-    }
-  </script>
 
 
   

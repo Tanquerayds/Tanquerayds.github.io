@@ -1,0 +1,787 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=light>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#8283a7">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="Servlet一、B&#x2F;S结构原理剖析 1.系统架构包括什么形式?  C&#x2F;S架构 B&#x2F;S架构  2.C&#x2F;S架构  Client &#x2F; Server(客户端&#x2F;服务器) C&#x2F;S架构的特点:需要安装特定的客户端软件。 C&#x2F;S架构的系统优点和缺点分别是什么? 优点: 速度快（数据大部分集成到客户端软件当中,交互数据量小) 服务器压">
+<meta property="og:type" content="article">
+<meta property="og:title" content="web后端-Servlet">
+<meta property="og:url" content="http://tanquerayds.site/2022/09/29/WEB%E5%90%8E%E7%AB%AF-Servlet/index.html">
+<meta property="og:site_name" content="老亚萨西了">
+<meta property="og:description" content="Servlet一、B&#x2F;S结构原理剖析 1.系统架构包括什么形式?  C&#x2F;S架构 B&#x2F;S架构  2.C&#x2F;S架构  Client &#x2F; Server(客户端&#x2F;服务器) C&#x2F;S架构的特点:需要安装特定的客户端软件。 C&#x2F;S架构的系统优点和缺点分别是什么? 优点: 速度快（数据大部分集成到客户端软件当中,交互数据量小) 服务器压">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://s1.328888.xyz/2022/09/29/sdC4F.png">
+<meta property="og:image" content="https://s1.328888.xyz/2022/09/29/MDwLw.png">
+<meta property="og:image" content="https://s1.328888.xyz/2022/09/29/MOLdX.png">
+<meta property="article:published_time" content="2022-09-29T01:47:43.000Z">
+<meta property="article:modified_time" content="2022-09-29T10:02:30.219Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://s1.328888.xyz/2022/09/29/sdC4F.png">
+  
+  
+  
+  <title>web后端-Servlet - 老亚萨西了</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/fold_code.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"tanquerayds.site","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Tanqueray</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/bg/2.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="web后端-Servlet"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-09-29 09:47" pubdate>
+          September 29, 2022 am
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          4.4k words
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          37 mins
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">web后端-Servlet</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="Servlet"><a href="#Servlet" class="headerlink" title="Servlet"></a>Servlet</h1><h2 id="一、B-x2F-S结构原理剖析"><a href="#一、B-x2F-S结构原理剖析" class="headerlink" title="一、B&#x2F;S结构原理剖析"></a>一、B&#x2F;S结构原理剖析</h2><blockquote>
+<p>1.系统架构包括什么形式?</p>
+<ul>
+<li>C&#x2F;S架构</li>
+<li>B&#x2F;S架构</li>
+</ul>
+<p>2.C&#x2F;S架构</p>
+<ul>
+<li>Client &#x2F; Server(客户端&#x2F;服务器)</li>
+<li>C&#x2F;S架构的特点:需要安装特定的<strong>客户端软件</strong>。</li>
+<li>C&#x2F;S架构的系统优点和缺点分别是什么?<ul>
+<li>优点:<ul>
+<li>速度快（数据大部分集成到客户端软件当中,交互数据量小)</li>
+<li><strong>服务器压力小</strong></li>
+<li>界面酷炫（专门的语言去实现界面的，更加灵活。)</li>
+<li>安全(大量的数据是集成在客户端软件当中的。)</li>
+<li>…</li>
+</ul>
+</li>
+<li>缺点:<ul>
+<li>升级维护比较差劲。(升级维护比较麻烦。成本比较高。每一个客户端软件都需要升级。有一些软件不是那么容易安装的。)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>3.B&#x2F;S架构</p>
+<ul>
+<li>B&#x2F;S (Browser &#x2F; Server，浏览器&#x2F;服务器)</li>
+<li>B&#x2F;S结构的系统是不是一个特殊的C&#x2F;S系统?<ul>
+<li>实际上B&#x2F;S结构的系统是一个<strong>特殊的C&#x2F;S结构</strong>，这个Client是一个固定不变浏览器软件</li>
+</ul>
+</li>
+<li>oB&#x2F;S结构的系统优点和缺点是:<ul>
+<li>优点:<ul>
+<li>升级<strong>维护方便成本比较低</strong>。(只需要升级服务器端即可不需要安装特定的客户端软件，用户操作极其方便。只需要打开浏览器，输入网址即可。</li>
+</ul>
+</li>
+<li>缺点:<ul>
+<li>速度慢(所有的数据都是在服务器上，用户发送的每一个请求都是需要服务器全身心的响应数据，所以B&#x2F;S结构的系统在网络中传送的数据量比较大。)</li>
+<li>体验差（界面不是那么酷炫，因为浏览器只支持三个语言HTML CSS JavaScript。在加上速度慢。)不安全(所有的数据都在服务器上，只要服务器发生火灾，地震等不可抗力，最终数据全部丢失。)…</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h3 id="一个WEB系统的通信原理？通信步骤："><a href="#一个WEB系统的通信原理？通信步骤：" class="headerlink" title="一个WEB系统的通信原理？通信步骤："></a>一个WEB系统的通信原理？通信步骤：</h3><blockquote>
+<ul>
+<li><ol>
+<li>用户输入网址（url）</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>域名解析器进行域名解析(ping的百度ip):<a target="_blank" rel="noopener" href="http://180.101.49.12/index.html">http://180.101.49.12:80/index.html</a></li>
+</ol>
+</li>
+<li><ol start="3">
+<li>浏览器软件在网络中搜索180.101.49.12这台主机</li>
+</ol>
+</li>
+<li><ol start="4">
+<li>定位到主机的80端口对应的服务器软件</li>
+</ol>
+</li>
+<li><ol start="5">
+<li>80端口对应的服务器软件得知浏览器请求的资源名是：index.html</li>
+</ol>
+</li>
+<li><ol start="6">
+<li>80端口服务器软件找到文件后将数据响应到浏览器上</li>
+</ol>
+</li>
+<li><ol start="7">
+<li>浏览器接收数据代码</li>
+</ol>
+</li>
+<li><ol start="8">
+<li>浏览器渲染，执行html css js 代码，完成通信<br><img src="https://s1.328888.xyz/2022/09/29/sdC4F.png" srcset="/img/loading.gif" lazyload></li>
+</ol>
+</li>
+</ul>
+</blockquote>
+<h3 id="关于WEB服务器软件"><a href="#关于WEB服务器软件" class="headerlink" title="关于WEB服务器软件"></a>关于WEB服务器软件</h3><blockquote>
+<p>WEB服务器软件都有哪些呢?(这些软件都是提前开发好的。)</p>
+<ul>
+<li>Tomcat (WEB服务器)</li>
+<li>jetty (WEB服务器)</li>
+<li>IBOSS(应用服务器)</li>
+<li>WebLogi (应用服务器)</li>
+<li>WebSphere(应用服务器)</li>
+</ul>
+<p>应用服务器和WEB服务器的关系?</p>
+<ul>
+<li>应用服务器实现了lavaEE的所有规范。(JavaEE有13个不同的规范。)</li>
+<li>WEB服务器只实现了lavaEE中的Servlet + JSP两个核心的规范。</li>
+<li>应用服务器是包含WEB服务器的。</li>
+<li>例如JBOSS中内嵌了一个Tomcat服务器。</li>
+</ul>
+<p> Tomcat下载</p>
+<ul>
+<li>apache官网地址: <a target="_blank" rel="noopener" href="https://www.apache.orglo/">https://www.apache.orglo</a> tomcat</li>
+<li>官网地址: <a target="_blank" rel="noopener" href="https://tomcat.apache.orgo/">https://tomcat.apache.orgo</a> tomcat开源免费的轻量级WEB服务器。</li>
+<li>tomcat的logo是一只公猫（寓意表示Tomcat服务器是轻巧的，小巧的，果然，体积小，运行速度快，只实现了Servlet+SP规范)</li>
+<li>tomcat是java语言写的。</li>
+<li>tomcat服务器要想运行，必须先有jre (Java的运行时环境)</li>
+<li>Tomcat服务器要想运行，需要先有jre，所以要先安装IDK，配置java运行环境。|<ul>
+<li>JAVA_HOME&#x3D;C:\Program FilesyJavaVyjdk-17.0.1</li>
+<li>PATH&#x3D;%JAVA_HOME%\bin</li>
+</ul>
+</li>
+</ul>
+<p>Tomcat服务器的安装配置:<br>绿色版本的安装很简单，直接zip包解压即可。解压就是安装。<br>启动Tomcat:</p>
+<ul>
+<li>bin目录下有一个文件: startup.bat,通过它可以启动Tomcat服务器。<ul>
+<li>xxx.bat文件是个什么文件? bat文件是windows操作系统专用的， bat文件是批处理文件，这种文件中可以编写大量的windows的dos命令，然后执行bat文件就相当于批量的执行dos命令。<ul>
+<li>startup.sh，这个文件在windows当中无法执行，在Linux环境当中可以使用。在Linux环境下能够执行的是shell命令，大量的shell命令编写在shell文件当中，然后执行这个shell文件可以批量的执行shell命令。</li>
+<li>tomcat服务器提供了bat和sh文件，说明了这个tomcat服务器的通用性。</li>
+</ul>
+</li>
+<li>分析startup.bat文件得出，执行这个命令，实际上最后是执行: catalina.bat文件。catalina.bat文件中有这样一行配置:<ul>
+<li>MAINCLASS&#x3D;org.apache.catalina.startup.Bootstrap(这个类就是main方法所在的类。)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>tomcat服务器就是Java语言写的，既然是java语言写的，那么启动Tomcat服务器就是执行main方法。我们尝试打开dos命令窗口，在dos命令窗口中输入startup.bat来启动tomcat服务器。显然直接启动行不通，还有两个环境变量需要配置:<ul>
+<li>PATH&#x3D;%CATALINA_HOME%\bin</li>
+<li>CATALINA_HOME&#x3D;Tomcat服务器的根</li>
+</ul>
+</li>
+</ul>
+<p>关于Tomcat服务器的目录</p>
+<ul>
+<li>bin:这个目录是Tomcat服务器的命令文件存放的目录，比如:启动Tomcat，关闭Tomcat等。</li>
+<li>conf:这个目录是Tomcat服务器的配置文件存放目录。(server.xml文件中可以配置端口号，默认Tomcat端口是8080)</li>
+<li>lib:这个目录是Tomcat服务器的核心程序目录，因为Tomcat服务器是Java语言编写的，这里的jar包里面都是class文件。</li>
+<li>logs:Tomcat服务器的日志目录，Tomcat服务器启动等信息都会在这个目录下生成日志文件。</li>
+<li>temp: Tomcat服务器的临时目录。存储临时文件。</li>
+<li>webapps:这个目录当中就是用来存放大量的webapp (web application: web应用)</li>
+<li>work:这个目录是用来存放ISP文件翻译之后的java文件以及编译之后的class文件。</li>
+</ul>
+<p>总结一下配置Tomcat服务器需要哪些环境变量?</p>
+<ul>
+<li>CATALINA_HOME&#x3D;Tomcat服务器的根</li>
+<li>PATH&#x3D;%JAVA_HOME%lbin;%CATALINA_HOME%1bin</li>
+<li>JAVA_HOME&#x3D;JDK的根</li>
+<li>启动Tomcat: startup</li>
+<li>关闭ITomcat:top (shutdown.bat文件重命名为stop.bat，为什么?原因是shutdown命令和windows中的关机命令冲突。所以修改一下。)</li>
+<li>怎么测试Toihcat服务器有没有启动成功呢?</li>
+<li>打开浏览器，在浏览器的地址栏上输入URL即可:<br><a href="http://ip地址:端口(8080)">http://ip地址:端口(8080)</a>  ，这里ip用本地ip127.0.0.1或者localhost</li>
+</ul>
+</blockquote>
+<h3 id="实现一个最基本的web应用-这个web应用中没有java小程序"><a href="#实现一个最基本的web应用-这个web应用中没有java小程序" class="headerlink" title="实现一个最基本的web应用(这个web应用中没有java小程序)"></a>实现一个最基本的web应用(这个web应用中没有java小程序)</h3><blockquote>
+<ul>
+<li>第一步:找到CATALINA_HOMEwebapps目录<ul>
+<li>因为所有的webapp要放到webapps目录下。(没有为什么，这是Tomcat服务器的要求。如果不放到这里，Tomcat服务器找不到你的应用。)</li>
+</ul>
+</li>
+<li>第二步:在CATALINA_HOME&#x2F;webapps目录下新建一个子目录，起名:oa<ul>
+<li>这个目录名oa就是你这个webapp的名字。</li>
+</ul>
+</li>
+<li>第三步:在oa目录下新建资源文件，例如:index.html,并编写内容</li>
+<li>第四步:启动Tomcat服务器</li>
+<li>第五步:打开浏览器，在浏览器地址栏上输入这样的URL:<ul>
+<li><a target="_blank" rel="noopener" href="http://127.0.0.1:8080/oa/index.html">http://127.0.0.1:8080/oa/index.html</a></li>
+</ul>
+</li>
+<li>思考一个问题:<ul>
+<li>我们在浏览器上直接输入一个URL，然后回车。这个动作和超链接一样吗?既然是一样的，我们完全可以使用超链接。</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<figure class="highlight html"><i class="iconfont icon-github-fill" type="button" data-toggle="collapse" data-target="#collapse-rh38bcl8mw146m"></i><span>html</span><div class="collapse show" id="collapse-rh38bcl8mw146m"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-comment">&lt;!--注意以下的路径，以/开始，带项目名，是一个绝对路径。不需要添加http://127.0.0.1:8080--&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;/oa/test1.html&quot;</span>&gt;</span>跳转测试1<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><br><br><span class="hljs-comment">&lt;!--多个层级也没有关系,正常访问即可--&gt;</span><br><span class="hljs-comment">&lt;!--注意:目前前端上的路径都以“/&quot;根目录开始的，都是加项目名的--&gt;</span>		<br><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;/oa/1/2/test2.html&quot;</span>&gt;</span>跳转测试2<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><br></code></pre></td></tr></table></div></figure>
+<blockquote>
+<ul>
+<li><a target="_blank" rel="noopener" href="http://127.0.0.1:8080/oa/userList.html">http://127.0.0.1:8080/oa/userList.html</a></li>
+<li>访问这个地址，可以展示一个用户列表页面。但是这个用户列表页面是写死在HTML文件当中的。这种资源我们称为静态资源。怎么能变成<strong>动态资源</strong>。显然需要连接数据库。<ul>
+<li>连接数据库需要JDBC程序，也就是说需要编写Java程序连接数据库，数据库中有多少条记录，页面上就显示多少条记录，这种技术被称为动态网页技术。(动态网页技术并不是说页面中有flash动画。动态网页技术是说页面中的<strong>数据是动态的</strong>，根据数据库中数据的变化而变化。)<br><img src="https://s1.328888.xyz/2022/09/29/MDwLw.png" srcset="/img/loading.gif" lazyload></li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<p>有哪些角色(在整个BS结构的系统当中，有哪些人参与进去了)</p>
+<ul>
+<li>浏览器软件的开发团队（(浏览器软件很多:谷歌浏览器、火狐浏览器、IE浏览器….)</li>
+<li>WEB Server的开发团队(WEB Server这个软件也是太多了:Tomcat、Jetty、WebLogic、JBQSS、WebSphere..o DB Server的开发团队(DB Server这个软件也是太多了:Oracle、MySQL……</li>
+<li>webapp的开发团队(WEB应用是我们做为JavaWEB程序员开发的)<br>角色和角色之间需要遵守哪些规范，哪些协议</li>
+<li>webapp的开发团队和WEB Server的开发团队之间有一套规范: JavaEE规范之一Servlet规范。<br>Servlet规范的作用是什么?</li>
+<li>WEB Server和webapp解耦合。</li>
+<li>Browser和WebServer之间有一套传输协议:HTTP协议。(超文本传输协议。</li>
+<li>webapp开发团队和DB Server的开发团队之间有—套规范:JDBC规范。<br><img src="https://s1.328888.xyz/2022/09/29/MOLdX.png" srcset="/img/loading.gif" lazyload></li>
+</ul>
+<h2 id="二、Servlet本质"><a href="#二、Servlet本质" class="headerlink" title="二、Servlet本质"></a>二、Servlet本质</h2><h2 id="三、Servlet对象生命周期"><a href="#三、Servlet对象生命周期" class="headerlink" title="三、Servlet对象生命周期"></a>三、Servlet对象生命周期</h2><h2 id="四、适配器设计模式"><a href="#四、适配器设计模式" class="headerlink" title="四、适配器设计模式"></a>四、适配器设计模式</h2><h2 id="五、GenericServlet源码分析"><a href="#五、GenericServlet源码分析" class="headerlink" title="五、GenericServlet源码分析"></a>五、GenericServlet源码分析</h2><h2 id="六、ServletConfig接口详解"><a href="#六、ServletConfig接口详解" class="headerlink" title="六、ServletConfig接口详解"></a>六、ServletConfig接口详解</h2><h2 id="七、ServletContext接口详解"><a href="#七、ServletContext接口详解" class="headerlink" title="七、ServletContext接口详解"></a>七、ServletContext接口详解</h2><h2 id="八、HTTP协议剖析"><a href="#八、HTTP协议剖析" class="headerlink" title="八、HTTP协议剖析"></a>八、HTTP协议剖析</h2><h2 id="九、GET和POST本质区别及选择"><a href="#九、GET和POST本质区别及选择" class="headerlink" title="九、GET和POST本质区别及选择"></a>九、GET和POST本质区别及选择</h2><h2 id="十、HttpServlet源码分析"><a href="#十、HttpServlet源码分析" class="headerlink" title="十、HttpServlet源码分析"></a>十、HttpServlet源码分析</h2><h2 id="十一、模板方法设计模式"><a href="#十一、模板方法设计模式" class="headerlink" title="十一、模板方法设计模式"></a>十一、模板方法设计模式</h2><h2 id="十二、WEB欢迎页"><a href="#十二、WEB欢迎页" class="headerlink" title="十二、WEB欢迎页"></a>十二、WEB欢迎页</h2><h2 id="十三、HttpServletRequest源码分析"><a href="#十三、HttpServletRequest源码分析" class="headerlink" title="十三、HttpServletRequest源码分析"></a>十三、HttpServletRequest源码分析</h2><h2 id="十四、乱码解决方案"><a href="#十四、乱码解决方案" class="headerlink" title="十四、乱码解决方案"></a>十四、乱码解决方案</h2><h2 id="十五、转发和重定向深度剖析"><a href="#十五、转发和重定向深度剖析" class="headerlink" title="十五、转发和重定向深度剖析"></a>十五、转发和重定向深度剖析</h2><h2 id="十六、Servlet注解式开发"><a href="#十六、Servlet注解式开发" class="headerlink" title="十六、Servlet注解式开发"></a>十六、Servlet注解式开发</h2><h2 id="十七、session原理剖析"><a href="#十七、session原理剖析" class="headerlink" title="十七、session原理剖析"></a>十七、session原理剖析</h2><h2 id="十八、cookie-原理剖析"><a href="#十八、cookie-原理剖析" class="headerlink" title="十八、cookie 原理剖析"></a>十八、cookie 原理剖析</h2><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>web后端-Servlet</div>
+      <div>http://tanquerayds.site/2022/09/29/WEB后端-Servlet/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>Author</div>
+          <div>John Doe</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Posted on</div>
+          <div>September 29, 2022</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>Licensed under</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/09/29/Markdown%E5%B8%B8%E7%94%A8%E8%AF%AD%E6%B3%95/" title="Markdown常用语法">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Markdown常用语法</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/09/29/AJAX%E5%92%8CJQuery/" title="AJAX和JQuery">
+                        <span class="hidden-mobile">AJAX和JQuery</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;Table of Contents</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
+</body>
+</html>
